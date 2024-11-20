@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Storage Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Cloud Storage Dashboard</h1>
+
+        <!-- Upload Credentials -->
+        <div class="form-group">
+            <label for="file-input">Upload Credentials:</label>
+            <input type="file" id="file-input">
+            <button data-original-text="Upload" onclick="uploadCredentials()">Upload</button>
+        </div>
+
+        <!-- Link Generation -->
+        <div class="form-group">
+            <label for="link-url">Link Generation:</label>
+            <input type="text" id="link-url" placeholder="Enter URL">
+            <input type="text" id="link-suffix" placeholder="Enter Offer Name">
+            <input type="text" id="link-bucket-name" placeholder="Enter bucket name for link upload">
+            <button data-original-text="Generate Link" onclick="generateLink()">Generate Link</button>
+        </div>
+
+        <!-- Create Bucket -->
+        <div class="form-group">
+            <label for="bucket-name">Create Bucket:</label>
+            <input type="text" id="bucket-name" placeholder="Enter bucket name">
+            <button data-original-text="Create" onclick="createBucket()">Create</button>
+        </div>
+
+        <!-- Make Bucket Public and List Files -->
+        <div class="form-group">
+            <label for="public-bucket-name">Make Bucket Public:</label>
+            <input type="text" id="public-bucket-name" placeholder="Enter bucket name to make public">
+            <button data-original-text="Make Public & List Files" onclick="makeBucketPublicAndListFiles()">Make Public & List Files</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" style="display: none;">Loading...</div>
+
+        <!-- Generated Links -->
+        <div id="generated-links"></div>
+
+        <!-- List of Files -->
+        <ul id="file-list"></ul>
+
+        <!-- Delete Bucket -->
+<style>
+        <div class="form-group">
+            <label for="delete-bucket-name">Delete Bucket:</label>
+            <input type="text" id="delete-bucket-name" placeholder="Enter bucket name to delete">
+            <button data-original-text="Delete Bucket" onclick="deleteBucket()">Delete Bucket</button>
+        </div>
+</style>
+
+
+        <!-- Delete All Buckets -->
+<style>
+        <div class="form-group">
+            <button data-original-text="Delete All Buckets" onclick="deleteAllBuckets()">Delete All Buckets</button>
+        </div>
+</style>
+
+        <!-- View Logs -->
+        <div class="form-group">
+            <a href="/logs">View Logs</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
